@@ -20,6 +20,6 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoDao, UserInfo> impl
     @Override
     @DataSource(DBTypeEnum.db1Source)
     public IPage<UserInfo> pageTest(Page page, QueryWrapper queryWrapper) {
-        return baseMapper.selectPage(page,queryWrapper);
+        return baseMapper.selectPage(page, queryWrapper);
     }
 }

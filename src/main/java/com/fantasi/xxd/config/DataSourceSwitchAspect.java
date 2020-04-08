@@ -20,18 +20,18 @@ public class DataSourceSwitchAspect {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Pointcut("@within(com.fantasi.xxd.config.DataSource) || @annotation(com.fantasi.xxd.config.DataSource)")
-    public void pointCut(){
+    public void pointCut() {
 
     }
 
     @Before("pointCut() && @annotation(dataSource)")
-    public void doBefore(DataSource dataSource){
-        logger.info("选择数据源---"+dataSource.value().getValue());
+    public void doBefore(DataSource dataSource) {
+        logger.info("选择数据源---" + dataSource.value().getValue());
         DbContextHolder.setDbType(dataSource.value());
     }
 
     @After("pointCut()")
-    public void doAfter(){
+    public void doAfter() {
         DbContextHolder.clearDbType();
     }
 }

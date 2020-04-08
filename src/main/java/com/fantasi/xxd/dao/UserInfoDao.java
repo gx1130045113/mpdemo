@@ -8,4 +8,5 @@ import com.fantasi.xxd.entity.UserInfo;
  * @date 2019/12/27 13:11
  */
 public interface UserInfoDao extends BaseMapper<UserInfo> {
+
 }

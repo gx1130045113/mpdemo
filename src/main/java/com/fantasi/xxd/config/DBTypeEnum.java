@@ -7,8 +7,7 @@ package com.fantasi.xxd.config;
 public enum DBTypeEnum {
 
     db1Source("db1Source"),
-    db2Source("db2Source")
-    ;
+    db2Source("db2Source");
     private String value;
 
     DBTypeEnum(String value) {

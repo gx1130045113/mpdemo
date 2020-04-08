@@ -10,6 +10,7 @@ public class DbContextHolder {
 
     /**
      * 设置数据源
+     *
      * @param dbTypeEnum
      */
     public static void setDbType(DBTypeEnum dbTypeEnum) {
@@ -18,6 +19,7 @@ public class DbContextHolder {
 
     /**
      * 取得当前数据源
+     *
      * @return
      */
     public static String getDbType() {

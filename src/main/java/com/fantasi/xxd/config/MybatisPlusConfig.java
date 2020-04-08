@@ -61,17 +61,18 @@ public class MybatisPlusConfig {
 
     /**
      * mybatis-plus 分页插件
+     *
      * @return
      */
     @Bean
-    public PaginationInterceptor paginationInterceptor(){
+    public PaginationInterceptor paginationInterceptor() {
         return new PaginationInterceptor().setLimit(1000);
     }
 
     @Bean("multipleDataSource")
     @Primary
-    public DataSource multipleDataSource(@Qualifier("db1Source")DataSource db1,
-                                         @Qualifier("db2Source")DataSource db2){
+    public DataSource multipleDataSource(@Qualifier("db1Source") DataSource db1,
+                                         @Qualifier("db2Source") DataSource db2) {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         Map<Object, Object> targetDataSource = new HashMap<>();
         targetDataSource.put(DBTypeEnum.db1Source.getValue(), db1);
@@ -90,7 +91,7 @@ public class MybatisPlusConfig {
 //    }
 
     @Bean("sqlSessionFactory")
-    public SqlSessionFactory sqlSessionFactory(@Qualifier("multipleDataSource")DataSource multipleDataSource) throws Exception {
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("multipleDataSource") DataSource multipleDataSource) throws Exception {
         System.out.println("==============================");
         //***导入MybatisSqlSession配置***
         MybatisSqlSessionFactoryBean sqlSessionFactory = new MybatisSqlSessionFactoryBean();
@@ -117,6 +118,7 @@ public class MybatisPlusConfig {
 
     /**
      * 在代码中配置MybatisPlus替换掉application.yml中的配置
+     *
      * @return
      */
     @Bean
